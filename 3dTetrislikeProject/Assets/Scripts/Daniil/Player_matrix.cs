@@ -7,7 +7,7 @@ public class Player_matrix : MonoBehaviour
     //объявляем необходимые переменные и метод расстановки
     int cube = 1;
     int form = 1;
-    public int[,] player_gird = new int[5, 5];
+    int[,] player_gird = new int[5, 5];
     public GameObject cube1;
     public GameObject cube2;
     public GameObject cube3;
@@ -24,23 +24,23 @@ public class Player_matrix : MonoBehaviour
                 {
                     if (cube == 1)
                     {
-                        cube1.transform.position = new Vector3(stlb - 2, 5 - str,-6);
+                        cube1.transform.position = new Vector3(stlb - 2, 5 - str);
                         cube = 2;
                     }
                     else if (cube == 2)
                     {
-                        cube2.transform.position = new Vector3(stlb - 2, 5 - str,-6);
+                        cube2.transform.position = new Vector3(stlb - 2, 5 - str);
                         cube = 3;
                     }
                     else if (cube == 3)
                     {
-                        cube3.transform.position = new Vector3(stlb - 2, 5 - str,-6);
+                        cube3.transform.position = new Vector3(stlb - 2, 5 - str);
                         cube = 4;
                     }
                     else if (cube == 4)
                     {
                         cube = 1;
-                        cube4.transform.position = new Vector3(stlb - 2, 5 - str,-6);
+                        cube4.transform.position = new Vector3(stlb - 2, 5 - str);
                     }
 
                 }
