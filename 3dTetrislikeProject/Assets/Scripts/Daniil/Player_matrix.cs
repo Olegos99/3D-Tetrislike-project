@@ -12,7 +12,8 @@ public class Player_matrix : MonoBehaviour
     public GameObject cube2;
     public GameObject cube3;
     public GameObject cube4;
-    static void Chek_Position(int[,] player_gird, GameObject cube1, GameObject cube2, GameObject cube3, GameObject cube4 )
+    public GameObject[] cubes;
+    static void Set_Position(int[,] player_gird, GameObject cube1, GameObject cube2, GameObject cube3, GameObject cube4 )
     {
         int cube = 1;
         for (int str = 0; str != 5; str++)
@@ -41,6 +42,7 @@ public class Player_matrix : MonoBehaviour
                         cube = 1;
                         cube4.transform.position = new Vector3(stlb - 2, 5 - str,-6);
                     }
+
                 }
             }
         }
@@ -59,7 +61,7 @@ public class Player_matrix : MonoBehaviour
         player_gird[2, 1] = 1;
         player_gird[2, 2] = 1;
         player_gird[2, 3] = 1;
-        Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
+        Set_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
         //-генератор сетки игрока
     }
 
@@ -91,9 +93,10 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[4, stlb] = 0;
                 }
+                Set_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
 
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4 );
+            
         }
 
         //-движение вверх
@@ -123,9 +126,9 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[0, stlb] = 0;
                 }
-
+                Set_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
+            
         }
         //-движение вниз
         //движение влево
@@ -153,9 +156,9 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[str, 4] = 0;
                 }
-
+                Set_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
+            
         }
 
         //-движение влево
@@ -183,9 +186,9 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[str, 0] = 0;
                 }
+                Set_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
 
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
         }
 
         //-движение вправо
@@ -365,7 +368,7 @@ public class Player_matrix : MonoBehaviour
                     }
                 }
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
+            Set_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
 
             //-смена формы 4-1
 

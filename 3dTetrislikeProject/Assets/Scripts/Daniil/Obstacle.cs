@@ -97,13 +97,16 @@ public class Obstacle : MonoBehaviour
     //управляем движением и задаём условия самокопирования, самоуничтожения и проверки на прохождение
     void FixedUpdate()
     {
+        Vector3 Pos = new Vector3();
+        Pos = gameObject.transform.position;
+        float Zpos = gameObject.transform.position.z;
         gameObject.transform.position += new Vector3(0, 0, -0.1f);
-        if (gameObject.transform.position.z < 40 && if_copied==false)
+        if (Zpos < 40 && if_copied==false)
         {
             Instantiate(gameObject);
             if_copied = true;
         }
-        if(gameObject.transform.position.z < -5 && gameObject.transform.position.z > -7)
+        if(Zpos < -5 && Zpos > -7)
         {
             for (int strr=0; strr!=5; strr++)
             {
@@ -116,12 +119,12 @@ public class Obstacle : MonoBehaviour
                 }
             }
         }
-        if (gameObject.transform.position.z < -7 && if_cheked==false)
+        if (Zpos < -7 && if_cheked==false)
         {
             Debug.Log("passed");
             if_cheked = true;
         }
-        if (gameObject.transform.position.z < -20)
+        if (Zpos < -20)
         {
             Destroy(gameObject);
         }
