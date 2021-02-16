@@ -6,15 +6,14 @@ public class Player_matrix : MonoBehaviour
 {
     //объявляем необходимые переменные и метод расстановки
     int cube = 1;
-    int form = 1;
+    int form;
     public int[,] player_gird = new int[5, 5];
-    public GameObject cube1;
-    public GameObject cube2;
-    public GameObject cube3;
-    public GameObject cube4;
-    static void Chek_Position(int[,] player_gird, GameObject cube1, GameObject cube2, GameObject cube3, GameObject cube4 )
+    GameObject cube1;
+    GameObject cube2;
+    GameObject cube3;
+    GameObject cube4;
+    void Set_Position()
     {
-        int cube = 1;
         for (int str = 0; str != 5; str++)
         {
             for (int stlb = 0; stlb != 5; stlb++)
@@ -49,17 +48,38 @@ public class Player_matrix : MonoBehaviour
 
     void Start()
     {
+        //привязываем переменные четырёх кубиков к объектам в иерархии
+        cube1 = GameObject.Find("Cube (1)");
+        cube2 = GameObject.Find("Cube (2)");
+        cube3 = GameObject.Find("Cube (3)");
+        cube4 = GameObject.Find("Cube (4)");
+        //-привязываем переменные четырёх кубиков к объектам в иерархии
 
         //генератор сетки игрока
-        foreach (int k in player_gird)
+        player_gird[3, 2] = 1;
+        player_gird[3, 3] = 1;
+        form= Random.Range(1, 5);
+        if (form == 1)
         {
-            player_gird[k, k] = 0;
+            player_gird[2, 2] = 1;
+            player_gird[3, 1] = 1;
         }
-        player_gird[1, 2] = 1;
-        player_gird[2, 1] = 1;
-        player_gird[2, 2] = 1;
-        player_gird[2, 3] = 1;
-        Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
+        else if(form == 2)
+        {
+            player_gird[3, 4] = 1;
+            player_gird[3, 1] = 1;
+        }
+        else if(form == 3)
+        {
+            player_gird[2,2]= 1;
+            player_gird[2,3]= 1;
+        }
+        else if(form == 4)
+        {
+            player_gird[2,2]= 1;
+            player_gird[1,2]= 1;
+        }
+        Set_Position();
         //-генератор сетки игрока
     }
 
@@ -91,9 +111,8 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[4, stlb] = 0;
                 }
-
+                Set_Position();
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4 );
         }
 
         //-движение вверх
@@ -123,9 +142,8 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[0, stlb] = 0;
                 }
-
+                Set_Position();
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
         }
         //-движение вниз
         //движение влево
@@ -153,9 +171,8 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[str, 4] = 0;
                 }
-
+                Set_Position();
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
         }
 
         //-движение влево
@@ -183,9 +200,8 @@ public class Player_matrix : MonoBehaviour
                 {
                     player_gird[str, 0] = 0;
                 }
-
+                Set_Position();
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
         }
 
         //-движение вправо
@@ -365,7 +381,7 @@ public class Player_matrix : MonoBehaviour
                     }
                 }
             }
-            Chek_Position(player_gird: player_gird, cube1: cube1, cube2: cube2, cube3: cube3, cube4: cube4);
+            Set_Position();
 
             //-смена формы 4-1
 
