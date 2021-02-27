@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Obstacle_moving : MonoBehaviour
 {
+    //*скрипт управляет движением отдельного препятствия*
     public int speed;
-
     //задаёт стартовую позицию
     void Start()
     {

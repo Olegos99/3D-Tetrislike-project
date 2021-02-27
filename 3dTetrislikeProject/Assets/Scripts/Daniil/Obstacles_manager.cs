@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Obstacles_manager : MonoBehaviour
 {
+    //*скрипт управляет препятствиями, создаёт и уничтожает их, а так же содержит публичные переменные дистанции между препятствиями и их скорости*
     //задаёт необходимые переменные
     public int obstacles_speed;
     public int obstacles_distance;
     public GameObject obstacle;
-    public int max_obstacle_number = 1;
+    int max_obstacle_number = 1;
     int min_obstacle_number = 1;
     bool hui = true;
     //-задаёт необходимые переменные

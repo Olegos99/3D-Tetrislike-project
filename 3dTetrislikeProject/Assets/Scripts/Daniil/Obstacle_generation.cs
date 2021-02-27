@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Obstacle_generation : MonoBehaviour
 {
+    //*скрипт генерирует отдельное препятствие*
     //необходимые переменные
-    int[,] obstacle_gird = new int[5, 5];
+    public int[,] obstacle_gird = new int[5, 5];
     int form;
     int str;
     int stlb;
