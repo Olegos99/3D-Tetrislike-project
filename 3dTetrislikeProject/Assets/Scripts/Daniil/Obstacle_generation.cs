@@ -14,7 +14,7 @@ public class Obstacle_generation : MonoBehaviour
     GameObject now_cube;
     //-необходимые переменные
 
-    void Start()
+    void OnEnable()
     {
         for (int strr = 0; strr != 5; strr++)
         {
@@ -23,6 +23,9 @@ public class Obstacle_generation : MonoBehaviour
                 obstacle_gird[strr, stlbb] = 1;
             }
         }
+
+
+
         //какая будет форма?
         form = Random.Range(1, 5);
         //какая будет форма?
@@ -83,7 +86,7 @@ public class Obstacle_generation : MonoBehaviour
                 if (obstacle_gird[str, stlb] == 1)
                 {
                     now_cube = gameObject.transform.Find("Obstacle Cube (" + cube + ")").gameObject;
-                    now_cube.transform.position = new Vector3(stlb - 2, 5 - str, 70);
+                    now_cube.transform.position = new Vector3(stlb - 2, 5 - str, 0);
                     cube++;
                 }
             }

@@ -49,6 +49,7 @@ public class Player_matrix : MonoBehaviour
 
     void Start()
     {
+        gameObject.transform.position = new Vector3(0, 0, -6f);
         //привязываем переменные четырёх кубиков к объектам в иерархии
         cube1 = GameObject.Find("Cube (1)");
         cube2 = GameObject.Find("Cube (2)");

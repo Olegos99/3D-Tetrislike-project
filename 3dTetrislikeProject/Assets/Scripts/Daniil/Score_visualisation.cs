@@ -40,7 +40,7 @@ public class Score_visualisation : MonoBehaviour
     //-Метод, задающей нужной цифре нужную визуализацию
 
     //Задаёт стартовую визуализацию (все на нолики)
-    void Start()
+    void OnEnable()
     {
         Vis_number(0, 1);
         Vis_number(0, 2);
@@ -68,7 +68,6 @@ public class Score_visualisation : MonoBehaviour
                 hundred = 0;
                 Vis_number(Total_score - Total_score % 10 - Total_score % 100,3);
             }
-            Debug.Log(Total_score);
         }
     }
     //-Если получен приказ из скрипта "Score_counting", добавляет очко и вызывает метод "Vis_number" 

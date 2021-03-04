@@ -6,31 +6,29 @@ public class Obstacles_manager : MonoBehaviour
 {
     //*скрипт управляет препятствиями, создаёт и уничтожает их, а так же содержит публичные переменные дистанции между препятствиями и их скорости*
     //задаёт необходимые переменные
-    public int obstacles_speed;
-    public int obstacles_distance;
+    public float obstacles_speed;
+    public float obstacles_distance;
     public GameObject obstacle;
     int max_obstacle_number = 1;
     int min_obstacle_number = 1;
-    bool hui = true;
     //-задаёт необходимые переменные
 
     //создаёт первый объект
-    void Start()
+
+    void OnEnable()
     {
-        Instantiate(obstacle).name= "Obstacle_" + max_obstacle_number;
+        Instantiate(obstacle,transform).name = "Obstacle_" + max_obstacle_number; 
         GameObject.Find("Obstacle_" + max_obstacle_number).GetComponent<Obstacle_moving>().speed = obstacles_speed;
     }
     //-создаёт первый объект
     void Update()
     {
         //при наличии триггера создаёт новое препятствие
-        if (GameObject.Find("Obstacle_" + max_obstacle_number).transform.position.z<70f- obstacles_distance&&hui)
+        if (GameObject.Find("Obstacle_" + max_obstacle_number).transform.position.z <45- obstacles_distance)
         {
-            hui = false;
             max_obstacle_number++;
-            Instantiate(obstacle).name = "Obstacle_" + max_obstacle_number;
+            Instantiate(obstacle,transform).name = "Obstacle_" + max_obstacle_number;
             GameObject.Find("Obstacle_" + max_obstacle_number).GetComponent<Obstacle_moving>().speed = obstacles_speed;
-            hui = true;
         }
         //-при наличии триггера создаёт новое препятствие
 
